@@ -1,0 +1,38 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "roughtweaks:isconfigenabled",
+          "config_setting": "enable_bandage"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+          "GPG",
+          "CWC",
+          "GPG"
+        ],
+        "key": {
+          "G": {
+            "tag": "forge:ingots/gold"
+          },
+          "P": {
+            "item": "minecraft:paper"
+          },
+          "C": {
+            "item": "minecraft:clay_ball"
+          },
+          "W": {
+            "tag": "forge:wools"
+          }
+        },
+        "result": {
+          "item": "roughtweaks:bandage"
+        }
+      }
+    }
+  ]
+}

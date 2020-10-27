@@ -1,0 +1,39 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "roughtweaks:isconfigenabled",
+          "config_setting": "enable_plaster"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+          "SBS",
+          "PWP",
+          "SBS"
+        ],
+        "key": {
+          "S": {
+            "tag": "forge:string"
+          },
+          "B": {
+            "tag": "forge:slimeballs"
+          },
+          "P": {
+            "item": "minecraft:paper"
+          },
+          "W": {
+            "tag": "minecraft:wool",
+		    "data": 32767
+          }
+        },
+        "result": {
+          "item": "roughtweaks:plaster"
+        }
+      }
+    }
+  ]
+}

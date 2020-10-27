@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[34,)"
+license="All rights reserved"
+
+issueTrackerURL="http://my.issue.tracker/" #TODO
+
+[[mods]]
+    modId="roughtweaks"
+    version="${file.jarVersion}"
+    displayName="Rough Tweaks"
+    # updateJSONURL="http://myurl.me/"
+    # displayURL="http://example.com/"
+    logoFile="roughtweaks.png"
+    credits="Huge thanks to our lad, Lellson, for making this amazing mod and allowing it to be ported!"
+    authors="MostafaSabry55"
+    description='''Adds a bit of extra difficulty'''
+
+[[dependencies.roughtweaks]]
+    modId="forge"
+    mandatory=true
+    versionRange="[34,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.roughtweaks]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.3]"
+    ordering="NONE"
+    side="BOTH"

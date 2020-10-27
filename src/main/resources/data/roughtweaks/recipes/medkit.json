@@ -1,0 +1,41 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "roughtweaks:isconfigenabled",
+          "config_setting": "enable_medkit"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+          "QNQ",
+          "SPB",
+          "QNQ"
+        ],
+        "key": {
+          "Q": {
+            "tag": "forge:gems/quartz"
+          },
+          "N": {
+            "tag": "forge:crops/nether_wart"
+          },
+          "S": {
+            "item": "roughtweaks:salve"
+          },
+          "P": {
+            "item": "roughtweaks:plaster"
+          },
+          "B": {
+            "item": "roughtweaks:bandage"
+          }
+        },
+        "result": {
+          "item": "roughtweaks:medkit"
+        }
+      }
+    }
+  ]
+}
