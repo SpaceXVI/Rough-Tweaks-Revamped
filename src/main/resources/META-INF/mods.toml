@@ -10,7 +10,7 @@ issueTrackerURL="http://my.issue.tracker/" #TODO
     displayName="Rough Tweaks"
     # updateJSONURL="http://myurl.me/"
     # displayURL="http://example.com/"
-    logoFile="roughtweaks.png"
+    logoFile="logo.png"
     credits="Huge thanks to our lad, Lellson, for making this amazing mod and allowing it to be ported!"
     authors="MostafaSabry55"
     description='''Adds a bit of extra difficulty'''
@@ -25,6 +25,6 @@ issueTrackerURL="http://my.issue.tracker/" #TODO
 [[dependencies.roughtweaks]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.3]"
+    versionRange="[1.16.3,)"
     ordering="NONE"
     side="BOTH"

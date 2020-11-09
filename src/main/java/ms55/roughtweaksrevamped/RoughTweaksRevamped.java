@@ -49,7 +49,6 @@ public class RoughTweaksRevamped {
 
     @SuppressWarnings({ "unchecked", "deprecation" })
 	private void clientSetup(FMLClientSetupEvent event) {
-		System.out.print("Hi");
 		try {
 		   	Method createBoolean = ObfuscationReflectionHelper.findMethod(GameRules.BooleanValue.class, "func_223568_b", boolean.class);
 		   	createBoolean.setAccessible(true);

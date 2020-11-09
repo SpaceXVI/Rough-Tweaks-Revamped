@@ -32,17 +32,11 @@ public class Recipes extends RecipeProvider {
 		Item BANDAGE = ForgeRegistries.ITEMS.getValue(new ResourceLocation(RoughTweaksRevamped.MODID, "bandage"));
 		Item MEDKIT = ForgeRegistries.ITEMS.getValue(new ResourceLocation(RoughTweaksRevamped.MODID, "medkit"));
 		Item ENCHANTED_MEDKIT = ForgeRegistries.ITEMS.getValue(new ResourceLocation(RoughTweaksRevamped.MODID, "medkit_enchanted"));
-		
-		System.out.println(SALVE);
-		System.out.println(PLASTER);
-		System.out.println(BANDAGE);
-		System.out.println(MEDKIT);
-		System.out.println(ENCHANTED_MEDKIT);
 
 		//Salve
     	ConditionalRecipe.builder()
         .addCondition(
-        	new BooleanCondition(() -> RoughConfig.ITEMS.SALVE_HEAL_COUNT.get() > 0, BooleanCondition.Type.SALVE.get())
+        	new BooleanCondition(() -> RoughConfig.HEAL_COUNT.SALVE_HEAL_COUNT.get() > 0, BooleanCondition.Type.SALVE.get())
         )
         .addRecipe(
         	ShapelessRecipeBuilder.shapelessRecipe(SALVE)
@@ -61,7 +55,7 @@ public class Recipes extends RecipeProvider {
     	//Plaster
     	ConditionalRecipe.builder()
         .addCondition(
-        	new BooleanCondition(() -> RoughConfig.ITEMS.PLASTER_HEAL_COUNT.get() > 0, BooleanCondition.Type.PLASTER.get())
+        	new BooleanCondition(() -> RoughConfig.HEAL_COUNT.PLASTER_HEAL_COUNT.get() > 0, BooleanCondition.Type.PLASTER.get())
         )
         .addRecipe(
         	ShapedRecipeBuilder.shapedRecipe(PLASTER)
@@ -81,7 +75,7 @@ public class Recipes extends RecipeProvider {
     	//Bandage
     	ConditionalRecipe.builder()
         .addCondition(
-        	new BooleanCondition(() -> RoughConfig.ITEMS.BANDAGE_HEAL_COUNT.get() > 0, BooleanCondition.Type.BANDAGE.get())
+        	new BooleanCondition(() -> RoughConfig.HEAL_COUNT.BANDAGE_HEAL_COUNT.get() > 0, BooleanCondition.Type.BANDAGE.get())
         )
         .addRecipe(
         	ShapedRecipeBuilder.shapedRecipe(BANDAGE)
@@ -101,7 +95,7 @@ public class Recipes extends RecipeProvider {
     	//Medkit
     	ConditionalRecipe.builder()
         .addCondition(
-        	new BooleanCondition(() -> RoughConfig.ITEMS.MEDKIT_HEAL_COUNT.get() > 0, BooleanCondition.Type.MEDKIT.get())
+        	new BooleanCondition(() -> RoughConfig.HEAL_COUNT.MEDKIT_HEAL_COUNT.get() > 0, BooleanCondition.Type.MEDKIT.get())
         )
         .addRecipe(
         	ShapedRecipeBuilder.shapedRecipe(MEDKIT)
@@ -124,7 +118,7 @@ public class Recipes extends RecipeProvider {
     	//Enchanted Medkit
     	ConditionalRecipe.builder()
         .addCondition(
-        	new BooleanCondition(() -> RoughConfig.ITEMS.MEDKIT_ENCHANTED_HEAL_COUNT.get() > 0, BooleanCondition.Type.MEDKIT_ENCHANTED.get())
+        	new BooleanCondition(() -> RoughConfig.HEAL_COUNT.MEDKIT_ENCHANTED_HEAL_COUNT.get() > 0, BooleanCondition.Type.MEDKIT_ENCHANTED.get())
         )
         .addRecipe(
         	ShapelessRecipeBuilder.shapelessRecipe(ENCHANTED_MEDKIT)

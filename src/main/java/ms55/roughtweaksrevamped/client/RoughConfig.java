@@ -29,21 +29,21 @@ public class RoughConfig {
 					.comment("Amount of half hearts sleeping heals. Set to 0 to disable this feature")
 					.defineInRange("roughtweaks.general.sleep_heal_amount", 2F, 0F, Short.MAX_VALUE);
 			HEALTH_REGEN = builder
-					.comment("Set to false to prevent this mod from setting the natural health regeneration gamerule to false on entering a world")
+					.comment("Set to false to prevent this mod from setting the natural health regeneration gamerule to false on entering a world (DOESN'T WORK YET, CHANGE IT MANUALLY VIA GAMERULES)")
 					.define("roughtweaks.general.health_regen", true);
 
 	        builder.pop();
 		}
 	}
 
-	public static class Items {
+	public static class HealCount {
 		public final IntValue SALVE_HEAL_COUNT;
 		public final IntValue PLASTER_HEAL_COUNT;
 		public final IntValue BANDAGE_HEAL_COUNT;
 		public final IntValue MEDKIT_HEAL_COUNT;
 		public final IntValue MEDKIT_ENCHANTED_HEAL_COUNT;
 
-		public Items(ForgeConfigSpec.Builder builder) {
+		public HealCount(ForgeConfigSpec.Builder builder) {
 			builder.comment("Defines how often you're able to rightclick the item to heal yourself. Set the use count to 0 to disable the item.")
 			       .push("Items");
 
@@ -98,16 +98,49 @@ public class RoughConfig {
 		}
 	}
 
+	public static class HealTime {
+		public final IntValue SALVE_USE_TIME;
+		public final IntValue PLASTER_USE_TIME;
+		public final IntValue BANDAGE_USE_TIME;
+		public final IntValue MEDKIT_USE_TIME;
+		public final IntValue MEDKIT_ENCHANTED_USE_TIME;
+
+		public HealTime(ForgeConfigSpec.Builder builder) {
+			builder.comment("Defines how long it takes for a healing item to get used.")
+			       .push("Items");
+
+			SALVE_USE_TIME = builder
+					.comment("Use time for the salve item")
+					.defineInRange("roughtweaks.items.salve_use_time", 5, 0, 72000);
+			PLASTER_USE_TIME = builder
+					.comment("Use count for the plaster item")
+					.defineInRange("roughtweaks.items.plaster_use_time", 10, 0, 72000);
+			BANDAGE_USE_TIME = builder
+					.comment("Use count for the bandage item")
+					.defineInRange("roughtweaks.items.bandage_use_time", 20, 0, 72000);
+			MEDKIT_USE_TIME = builder
+					.comment("Use count for the medkit item")
+					.defineInRange("roughtweaks.items.medkit_use_time", 40, 0, 72000);
+			MEDKIT_ENCHANTED_USE_TIME = builder
+					.comment("Use count for the enchanted medkit item")
+					.defineInRange("roughtweaks.items.medkit_enchanted_use_time", 40, 0, 72000);
+
+	        builder.pop();
+		}
+	}
+
 	public static final ForgeConfigSpec COMMON_SPEC;
 	public static final General GENERAL;
-	public static final Items ITEMS;
+	public static final HealCount HEAL_COUNT;
 	public static final HealAmount HEAL_AMOUNT;
+	public static final HealTime HEAL_TIME;
 
 	static {
 		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 		GENERAL = new General(builder);
-		ITEMS = new Items(builder);
+		HEAL_COUNT = new HealCount(builder);
 		HEAL_AMOUNT = new HealAmount(builder);
+		HEAL_TIME = new HealTime(builder);
 
 		COMMON_SPEC = builder.build();
 	}

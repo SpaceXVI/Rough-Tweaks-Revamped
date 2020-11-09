@@ -70,15 +70,15 @@ public final class BooleanCondition implements ICondition {
 
             switch (configSetting) {
                 case "enable_salve":
-                    return new BooleanCondition(() -> RoughConfig.ITEMS.SALVE_HEAL_COUNT.get() > 0, configSetting);
+                    return new BooleanCondition(() -> RoughConfig.HEAL_COUNT.SALVE_HEAL_COUNT.get() > 0, configSetting);
                 case "enable_plaster":
-                    return new BooleanCondition(() -> RoughConfig.ITEMS.PLASTER_HEAL_COUNT.get() > 0, configSetting);
+                    return new BooleanCondition(() -> RoughConfig.HEAL_COUNT.PLASTER_HEAL_COUNT.get() > 0, configSetting);
                 case "enable_bandage":
-                    return new BooleanCondition(() -> RoughConfig.ITEMS.BANDAGE_HEAL_COUNT.get() > 0, configSetting);
+                    return new BooleanCondition(() -> RoughConfig.HEAL_COUNT.BANDAGE_HEAL_COUNT.get() > 0, configSetting);
                 case "enable_medkit":
-                    return new BooleanCondition(() -> RoughConfig.ITEMS.MEDKIT_HEAL_COUNT.get() > 0, configSetting);
+                    return new BooleanCondition(() -> RoughConfig.HEAL_COUNT.MEDKIT_HEAL_COUNT.get() > 0, configSetting);
                 case "enable_medkit_enchanted":
-                    return new BooleanCondition(() -> RoughConfig.ITEMS.BANDAGE_HEAL_COUNT.get() > 0, configSetting);
+                    return new BooleanCondition(() -> RoughConfig.HEAL_COUNT.BANDAGE_HEAL_COUNT.get() > 0, configSetting);
                 default:
                     throw new RuntimeException("Invalid config setting: " + configSetting);
             }

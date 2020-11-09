@@ -46,11 +46,11 @@ public class RoughEvents {
 
 	private int getEnabledItems() {
 		int items = 0;
-		if (RoughConfig.ITEMS.SALVE_HEAL_COUNT.get() > 0)
+		if (RoughConfig.HEAL_COUNT.SALVE_HEAL_COUNT.get() > 0)
 			items++;
-		if (RoughConfig.ITEMS.PLASTER_HEAL_COUNT.get() > 0)
+		if (RoughConfig.HEAL_COUNT.PLASTER_HEAL_COUNT.get() > 0)
 			items++;
-		if (RoughConfig.ITEMS.BANDAGE_HEAL_COUNT.get() > 0)
+		if (RoughConfig.HEAL_COUNT.BANDAGE_HEAL_COUNT.get() > 0)
 			items++;
 
 		return items;
