@@ -24,13 +24,13 @@ public class RoughConfig {
 
 			DROP_CHANCE = builder
 					.comment("Chance 1 in X that a hostile entity drops either salve, a plaster or a bandage\\nSet this to 0 if you want to disable entity drops")
-					.defineInRange("roughtweaks.general.drop_chance", 30, 0, Short.MAX_VALUE);
+					.defineInRange("drop_chance", 30, 0, Short.MAX_VALUE);
 			SLEEP_HEAL_AMOUNT = builder
 					.comment("Amount of half hearts sleeping heals. Set to 0 to disable this feature")
-					.defineInRange("roughtweaks.general.sleep_heal_amount", 2F, 0F, Short.MAX_VALUE);
+					.defineInRange("sleep_heal_amount", 2F, 0F, Short.MAX_VALUE);
 			HEALTH_REGEN = builder
 					.comment("Set to false to prevent this mod from setting the natural health regeneration gamerule to false on entering a world (DOESN'T WORK YET, CHANGE IT MANUALLY VIA GAMERULES)")
-					.define("roughtweaks.general.health_regen", true);
+					.define("health_regen", true);
 
 	        builder.pop();
 		}
@@ -45,23 +45,23 @@ public class RoughConfig {
 
 		public HealCount(ForgeConfigSpec.Builder builder) {
 			builder.comment("Defines how often you're able to rightclick the item to heal yourself. Set the use count to 0 to disable the item.")
-			       .push("Items");
+			       .push("Heal Count");
 
 			SALVE_HEAL_COUNT = builder
 					.comment("Use count for the salve item")
-					.defineInRange("roughtweaks.items.salve_heal_count", 4, 0, Short.MAX_VALUE);
+					.defineInRange("salve_heal_count", 4, 0, Short.MAX_VALUE);
 			PLASTER_HEAL_COUNT = builder
 					.comment("Use count for the plaster item")
-					.defineInRange("roughtweaks.items.plaster_heal_count", 4, 0, Short.MAX_VALUE);
+					.defineInRange("plaster_heal_count", 4, 0, Short.MAX_VALUE);
 			BANDAGE_HEAL_COUNT = builder
 					.comment("Use count for the bandage item")
-					.defineInRange("roughtweaks.items.bandage_heal_count", 6, 0, Short.MAX_VALUE);
+					.defineInRange("bandage_heal_count", 6, 0, Short.MAX_VALUE);
 			MEDKIT_HEAL_COUNT = builder
 					.comment("Use count for the medkit item")
-					.defineInRange("roughtweaks.items.medkit_heal_count", 16, 0, Short.MAX_VALUE);
+					.defineInRange("medkit_heal_count", 16, 0, Short.MAX_VALUE);
 			MEDKIT_ENCHANTED_HEAL_COUNT = builder
 					.comment("Use count for the enchanted medkit item")
-					.defineInRange("roughtweaks.items.medkit_enchanted_heal_count", 16, 0, Short.MAX_VALUE);
+					.defineInRange("medkit_enchanted_heal_count", 16, 0, Short.MAX_VALUE);
 
 	        builder.pop();
 		}
@@ -80,19 +80,19 @@ public class RoughConfig {
 
 			SALVE_HEAL_AMOUNT = builder
 					.comment("Salve heal amount")
-					.defineInRange("roughtweaks.heal.salve_heal_count", 1F, 1F, Short.MAX_VALUE);
+					.defineInRange("salve_heal_count", 1F, 1F, Short.MAX_VALUE);
 			PLASTER_HEAL_AMOUNT = builder
 					.comment("Salve heal amount")
-					.defineInRange("roughtweaks.heal.plaster_heal_count", 1F, 1F, Short.MAX_VALUE);
+					.defineInRange("plaster_heal_count", 1F, 1F, Short.MAX_VALUE);
 			BANDAGE_HEAL_AMOUNT = builder
 					.comment("Salve heal amount")
-					.defineInRange("roughtweaks.heal.bandage_heal_count", 1F, 1F, Short.MAX_VALUE);
+					.defineInRange("bandage_heal_count", 1F, 1F, Short.MAX_VALUE);
 			MEDKIT_HEAL_AMOUNT = builder
 					.comment("Salve heal amount")
-					.defineInRange("roughtweaks.heal.medkit_heal_count", 2F, 1F, Short.MAX_VALUE);
+					.defineInRange("medkit_heal_count", 2F, 1F, Short.MAX_VALUE);
 			MEDKIT_ENCHANTED_HEAL_AMOUNT = builder
 					.comment("Salve heal amount")
-					.defineInRange("roughtweaks.heal.medkit_enchanted_heal_count", 3F, 1F, Short.MAX_VALUE);
+					.defineInRange("medkit_enchanted_heal_count", 3F, 1F, Short.MAX_VALUE);
 
 	        builder.pop();
 		}
@@ -111,19 +111,19 @@ public class RoughConfig {
 
 			SALVE_USE_TIME = builder
 					.comment("Use time for the salve item")
-					.defineInRange("roughtweaks.items.salve_use_time", 5, 0, 72000);
+					.defineInRange("salve_use_time", 5, 0, 72000);
 			PLASTER_USE_TIME = builder
 					.comment("Use count for the plaster item")
-					.defineInRange("roughtweaks.items.plaster_use_time", 10, 0, 72000);
+					.defineInRange("plaster_use_time", 10, 0, 72000);
 			BANDAGE_USE_TIME = builder
 					.comment("Use count for the bandage item")
-					.defineInRange("roughtweaks.items.bandage_use_time", 20, 0, 72000);
+					.defineInRange(".bandage_use_time", 20, 0, 72000);
 			MEDKIT_USE_TIME = builder
 					.comment("Use count for the medkit item")
-					.defineInRange("roughtweaks.items.medkit_use_time", 40, 0, 72000);
+					.defineInRange("medkit_use_time", 40, 0, 72000);
 			MEDKIT_ENCHANTED_USE_TIME = builder
 					.comment("Use count for the enchanted medkit item")
-					.defineInRange("roughtweaks.items.medkit_enchanted_use_time", 40, 0, 72000);
+					.defineInRange("medkit_enchanted_use_time", 40, 0, 72000);
 
 	        builder.pop();
 		}
