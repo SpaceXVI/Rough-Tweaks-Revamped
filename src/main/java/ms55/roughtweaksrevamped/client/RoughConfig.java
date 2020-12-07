@@ -117,7 +117,7 @@ public class RoughConfig {
 					.defineInRange("plaster_use_time", 10, 0, 72000);
 			BANDAGE_USE_TIME = builder
 					.comment("Use count for the bandage item")
-					.defineInRange(".bandage_use_time", 20, 0, 72000);
+					.defineInRange("bandage_use_time", 20, 0, 72000);
 			MEDKIT_USE_TIME = builder
 					.comment("Use count for the medkit item")
 					.defineInRange("medkit_use_time", 40, 0, 72000);
