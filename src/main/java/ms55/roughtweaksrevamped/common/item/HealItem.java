@@ -27,25 +27,27 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
+import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 
 public class HealItem extends Item {
-	private int healRate;
-	private float healAmount;
-	private Effect effect;
-	private ItemStack returnStack;
+	private IntValue HEAL_RATE;
+	private IntValue MAX_DAMAGE;
+	private DoubleValue HEAL_AMOUNT;
+	private Effect EFFECT;
+	private ItemStack RETURN_STACK;
 
-	public HealItem(String name, int useCount, int healRate, float healAmount, Effect effect, ItemStack returnStack) {
+	public HealItem(String name, IntValue useCount, IntValue healRate, DoubleValue healAmount, Effect effect, ItemStack returnStack) {
 		super(new Item.Properties()
 				.group(ItemGroup.MISC)
                 .maxStackSize(1)
-                .maxDamage(useCount));
-		
-		System.out.println(name + ", useCount : " + useCount + ", healRate : " + healRate + ", healAmount : " + healAmount);
+                .maxDamage(useCount.get()));
 
-		this.healRate = healRate;
-		this.healAmount = healAmount;
-		this.effect = effect;
-		this.returnStack = returnStack;
+		this.HEAL_RATE = healRate;
+		this.HEAL_AMOUNT = healAmount;
+		this.MAX_DAMAGE = useCount;
+		this.EFFECT = effect;
+		this.RETURN_STACK = returnStack;
 	}
 
 	@Override
@@ -58,6 +60,11 @@ public class HealItem extends Item {
 
 		player.setActiveHand(hand);
 		return new ActionResult<ItemStack>(ActionResultType.SUCCESS, stack);
+	}
+
+	@Override
+	public int getMaxDamage(ItemStack stack) {
+		return MAX_DAMAGE.get();
 	}
 
 	@Override
@@ -77,23 +84,27 @@ public class HealItem extends Item {
 
 	@Override
 	public boolean hasEffect(ItemStack stack) {
-		return effect != null;
+		return EFFECT != null;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onUsingTick(ItemStack stack, LivingEntity player, int count) {
-		if (count % healRate == 1) {
+		if (count % HEAL_RATE.get() == 1) {
 			stack.damageItem(1, player, x -> {
-				x.setHeldItem(player.getActiveHand(), returnStack);
+				x.setHeldItem(player.getActiveHand(), RETURN_STACK);
 				x.playSound(SoundEvents.BLOCK_WOOL_PLACE, 1.0F, 0.5F);
 				x.stopActiveHand();
 			});
 
-			player.heal(healAmount);
+			System.out.println(MAX_DAMAGE.get());
+			System.out.println(this.getMaxDamage());
+
+			player.heal(HEAL_AMOUNT.get().floatValue());
 			player.playSound(SoundEvents.BLOCK_WOOL_PLACE, 1.0F, 1.5F);
 
-			if (effect != null) {
-				player.addPotionEffect(new EffectInstance(effect, 1200));
+			if (EFFECT != null) {
+				player.addPotionEffect(new EffectInstance(EFFECT, 1200));
 			}
 		}
 	}
@@ -102,7 +113,7 @@ public class HealItem extends Item {
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (InputMappings.isKeyDown(Minecraft.getInstance().getMainWindow().getHandle(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
-			float hearts = healAmount / 2;
+			float hearts = HEAL_AMOUNT.get().floatValue() / 2;
 			if (hearts % 1.0 == 0)
 				tooltip.add(new StringTextComponent(TextFormatting.BLUE + "Heal Amount: " + (int) hearts + " Hearts"));
 			else

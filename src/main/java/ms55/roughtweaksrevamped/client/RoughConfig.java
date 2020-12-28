@@ -20,10 +20,10 @@ public class RoughConfig {
 
 			DROP_CHANCE = builder
 					.comment("Chance 1 in X that a hostile entity drops either salve, a plaster or a bandage\\nSet this to 0 if you want to disable entity drops")
-					.defineInRange("drop_chance", 30, 0, Short.MAX_VALUE);
+					.defineInRange("dropChance", 30, 0, Short.MAX_VALUE);
 			SLEEP_HEAL_AMOUNT = builder
 					.comment("Amount of half hearts sleeping heals. Set to 0 to disable this feature")
-					.defineInRange("sleep_heal_amount", 2F, 0F, Short.MAX_VALUE);
+					.defineInRange("sleepHealAmount", 2F, 0F, Short.MAX_VALUE);
 
 	        builder.pop();
 		}
@@ -42,19 +42,19 @@ public class RoughConfig {
 
 			SALVE_HEAL_COUNT = builder
 					.comment("Use count for the salve item")
-					.defineInRange("salve_heal_count", 4, 0, Integer.MAX_VALUE);
+					.defineInRange("salveHealCount", 4, 0, Integer.MAX_VALUE);
 			PLASTER_HEAL_COUNT = builder
 					.comment("Use count for the plaster item")
-					.defineInRange("plaster_heal_count", 4, 0, Integer.MAX_VALUE);
+					.defineInRange("plasterHealCount", 4, 0, Integer.MAX_VALUE);
 			BANDAGE_HEAL_COUNT = builder
 					.comment("Use count for the bandage item")
-					.defineInRange("bandage_heal_count", 6, 0, Integer.MAX_VALUE);
+					.defineInRange("bandageHealCount", 6, 0, Integer.MAX_VALUE);
 			MEDKIT_HEAL_COUNT = builder
 					.comment("Use count for the medkit item")
-					.defineInRange("medkit_heal_count", 16, 0, Integer.MAX_VALUE);
+					.defineInRange("medkitHealCount", 16, 0, Integer.MAX_VALUE);
 			MEDKIT_ENCHANTED_HEAL_COUNT = builder
 					.comment("Use count for the enchanted medkit item")
-					.defineInRange("medkit_enchanted_heal_count", 16, 0, Integer.MAX_VALUE);
+					.defineInRange("medkitEnchantedHealCount", 16, 0, Integer.MAX_VALUE);
 
 	        builder.pop();
 		}
@@ -73,19 +73,19 @@ public class RoughConfig {
 
 			SALVE_HEAL_AMOUNT = builder
 					.comment("Salve heal amount")
-					.defineInRange("salve_heal_amount", 1F, 1F, Double.MAX_VALUE);
+					.defineInRange("salveHealAmount", 1F, 1F, Double.MAX_VALUE);
 			PLASTER_HEAL_AMOUNT = builder
 					.comment("Salve heal amount")
-					.defineInRange("plaster_heal_amount", 1F, 1F, Double.MAX_VALUE);
+					.defineInRange("plasterHealAmount", 1F, 1F, Double.MAX_VALUE);
 			BANDAGE_HEAL_AMOUNT = builder
 					.comment("Salve heal amount")
-					.defineInRange("bandage_heal_amount", 1F, 1F, Double.MAX_VALUE);
+					.defineInRange("bandageHealAmount", 1F, 1F, Double.MAX_VALUE);
 			MEDKIT_HEAL_AMOUNT = builder
 					.comment("Salve heal amount")
-					.defineInRange("medkit_heal_amount", 2F, 1F, Double.MAX_VALUE);
+					.defineInRange("medkitHealAmount", 2F, 1F, Double.MAX_VALUE);
 			MEDKIT_ENCHANTED_HEAL_AMOUNT = builder
 					.comment("Salve heal amount")
-					.defineInRange("medkit_enchanted_heal_amount", 3F, 1F, Double.MAX_VALUE);
+					.defineInRange("medkitEnchantedHealAmount", 3F, 1F, Double.MAX_VALUE);
 
 	        builder.pop();
 		}
@@ -104,19 +104,19 @@ public class RoughConfig {
 
 			SALVE_USE_TIME = builder
 					.comment("Use time for the salve item")
-					.defineInRange("salve_use_time", 5, 0, 72000);
+					.defineInRange("salveUseTime", 5, 0, 72000);
 			PLASTER_USE_TIME = builder
 					.comment("Use count for the plaster item")
-					.defineInRange("plaster_use_time", 10, 0, 72000);
+					.defineInRange("plasterUseTime", 10, 0, 72000);
 			BANDAGE_USE_TIME = builder
 					.comment("Use count for the bandage item")
-					.defineInRange("bandage_use_time", 20, 0, 72000);
+					.defineInRange("bandageUseTime", 20, 0, 72000);
 			MEDKIT_USE_TIME = builder
 					.comment("Use count for the medkit item")
-					.defineInRange("medkit_use_time", 40, 0, 72000);
+					.defineInRange("medkitUseTime", 40, 0, 72000);
 			MEDKIT_ENCHANTED_USE_TIME = builder
 					.comment("Use count for the enchanted medkit item")
-					.defineInRange("medkit_enchanted_use_time", 40, 0, 72000);
+					.defineInRange("medkitEnchantedUseTime", 40, 0, 72000);
 
 	        builder.pop();
 		}

@@ -19,6 +19,10 @@ public class RoughEvents {
 	public void tickEvent(PlayerTickEvent event) {
 		if (event.player.isPlayerFullyAsleep()) {
 			event.player.heal(RoughConfig.GENERAL.SLEEP_HEAL_AMOUNT.get().floatValue());
+			System.out.println(RoughConfig.GENERAL.SLEEP_HEAL_AMOUNT.get());
+			System.out.println(RoughConfig.HEAL_AMOUNT.PLASTER_HEAL_AMOUNT.get());
+			System.out.println(RoughConfig.HEAL_TIME.PLASTER_USE_TIME.get());
+			System.out.println(RoughConfig.HEAL_COUNT.BANDAGE_HEAL_COUNT.get());
 		}
 	}
 
