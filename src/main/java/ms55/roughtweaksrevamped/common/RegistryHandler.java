@@ -15,40 +15,40 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class RegistryHandler {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RoughTweaksRevamped.MODID);
 
-	public static final RegistryObject<Item> SALVE = RegistryHandler.ITEMS.register(
+	public static RegistryObject<Item> SALVE = RegistryHandler.ITEMS.register(
 		"salve", () -> new HealItem("salve", RoughConfig.HEAL_COUNT.SALVE_HEAL_COUNT.get(),
-				RoughConfig.HEAL_TIME.SALVE_USE_TIME.get(), 
+				RoughConfig.HEAL_TIME.SALVE_USE_TIME.get(),
 				RoughConfig.HEAL_AMOUNT.SALVE_HEAL_AMOUNT.get().floatValue(), 
 				null, 
 				new ItemStack(Items.BOWL)));
 
-	public static final RegistryObject<Item> PLASTER = RegistryHandler.ITEMS.register(
+	public static RegistryObject<Item> PLASTER = RegistryHandler.ITEMS.register(
 		"plaster", () -> new HealItem("plaster", RoughConfig.HEAL_COUNT.PLASTER_HEAL_COUNT.get(),
 				RoughConfig.HEAL_TIME.PLASTER_USE_TIME.get(),
 				RoughConfig.HEAL_AMOUNT.PLASTER_HEAL_AMOUNT.get().floatValue(),
 				null,
-				null));
+				ItemStack.EMPTY));
 
-	public static final RegistryObject<Item> BANDAGE = RegistryHandler.ITEMS.register(
+	public static RegistryObject<Item> BANDAGE = RegistryHandler.ITEMS.register(
 		"bandage", () -> new HealItem("bandage", RoughConfig.HEAL_COUNT.BANDAGE_HEAL_COUNT.get(),
 				RoughConfig.HEAL_TIME.BANDAGE_USE_TIME.get(),
 				RoughConfig.HEAL_AMOUNT.BANDAGE_HEAL_AMOUNT.get().floatValue(),
 				null,
-				null));
+				ItemStack.EMPTY));
 
-	public static final RegistryObject<Item> MEDKIT = RegistryHandler.ITEMS.register(
+	public static RegistryObject<Item> MEDKIT = RegistryHandler.ITEMS.register(
 		"medkit", () -> new HealItem("medkit", RoughConfig.HEAL_COUNT.MEDKIT_HEAL_COUNT.get(),
 				RoughConfig.HEAL_TIME.MEDKIT_USE_TIME.get(),
 				RoughConfig.HEAL_AMOUNT.MEDKIT_HEAL_AMOUNT.get().floatValue(),
 				null,
-				null));
+				ItemStack.EMPTY));
 
-	public static final RegistryObject<Item> ENCHANTED_MEDKIT = RegistryHandler.ITEMS.register(
+	public static RegistryObject<Item> ENCHANTED_MEDKIT = RegistryHandler.ITEMS.register(
 		"medkit_enchanted", () -> new HealItem("medkit_enchanted", RoughConfig.HEAL_COUNT.MEDKIT_ENCHANTED_HEAL_COUNT.get(),
 				RoughConfig.HEAL_TIME.MEDKIT_ENCHANTED_USE_TIME.get(),
 				RoughConfig.HEAL_AMOUNT.MEDKIT_ENCHANTED_HEAL_AMOUNT.get().floatValue(),
 				Effects.ABSORPTION,
-				null));
+				ItemStack.EMPTY));
 
     public static void register() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());

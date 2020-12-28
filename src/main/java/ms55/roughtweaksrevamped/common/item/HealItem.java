@@ -29,16 +29,18 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class HealItem extends Item {
-	private final int healRate;
-	private final float healAmount;
-	private final Effect effect;
-	private final ItemStack returnStack;
+	private int healRate;
+	private float healAmount;
+	private Effect effect;
+	private ItemStack returnStack;
 
 	public HealItem(String name, int useCount, int healRate, float healAmount, Effect effect, ItemStack returnStack) {
 		super(new Item.Properties()
 				.group(ItemGroup.MISC)
                 .maxStackSize(1)
                 .maxDamage(useCount));
+		
+		System.out.println(name + ", useCount : " + useCount + ", healRate : " + healRate + ", healAmount : " + healAmount);
 
 		this.healRate = healRate;
 		this.healAmount = healAmount;
@@ -82,7 +84,7 @@ public class HealItem extends Item {
 	public void onUsingTick(ItemStack stack, LivingEntity player, int count) {
 		if (count % healRate == 1) {
 			stack.damageItem(1, player, x -> {
-				x.setHeldItem(player.getActiveHand(), returnStack == null ? ItemStack.EMPTY : returnStack);
+				x.setHeldItem(player.getActiveHand(), returnStack);
 				x.playSound(SoundEvents.BLOCK_WOOL_PLACE, 1.0F, 0.5F);
 				x.stopActiveHand();
 			});
