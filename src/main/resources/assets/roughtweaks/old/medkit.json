@@ -1,0 +1,12 @@
+{
+  "parent": "roughtweaks:item/generated",
+
+  "overrides": [
+        {
+            "predicate": {
+                "roughtweaks:switch": 0
+            },
+            "model": "roughtweaks:item/new_medkit"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "roughtweaks:item/medkit_enchanted"
+  },
+  "overrides": [
+        {
+            "predicate": {
+                "roughtweaks:switch": 0
+            },
+            "model": "roughtweaks:item/new_medkit_enchanted"
+        }
+    ]
+}

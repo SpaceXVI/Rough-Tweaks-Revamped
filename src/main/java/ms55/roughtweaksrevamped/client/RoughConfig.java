@@ -2,6 +2,7 @@ package ms55.roughtweaksrevamped.client;
 
 import ms55.roughtweaksrevamped.RoughTweaksRevamped;
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 import net.minecraftforge.fml.common.Mod;
@@ -13,6 +14,7 @@ public class RoughConfig {
 	public static class General {
 		public final IntValue DROP_CHANCE;
 		public final DoubleValue SLEEP_HEAL_AMOUNT;
+		public final BooleanValue OLD_TEXTURES;
 
 		public General(ForgeConfigSpec.Builder builder) {
 			builder.comment("Here you can tweak some additional stuff this mod does")
@@ -24,6 +26,9 @@ public class RoughConfig {
 			SLEEP_HEAL_AMOUNT = builder
 					.comment("Amount of half hearts sleeping heals. Set to 0 to disable this feature")
 					.defineInRange("sleepHealAmount", 2F, 0F, Short.MAX_VALUE);
+			OLD_TEXTURES = builder
+					.comment("Set to true if you don't want the new medkit models")
+					.define("oldTextures", false);
 
 	        builder.pop();
 		}
