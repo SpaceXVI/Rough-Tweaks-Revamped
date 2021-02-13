@@ -87,7 +87,6 @@ public class HealItem extends Item {
 		return EFFECT != null;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void onUsingTick(ItemStack stack, LivingEntity player, int count) {
 		if (count % HEAL_RATE.get() == 1) {
@@ -96,9 +95,6 @@ public class HealItem extends Item {
 				x.playSound(SoundEvents.BLOCK_WOOL_PLACE, 1.0F, 0.5F);
 				x.stopActiveHand();
 			});
-
-			System.out.println(MAX_DAMAGE.get());
-			System.out.println(this.getMaxDamage());
 
 			player.heal(HEAL_AMOUNT.get().floatValue());
 			player.playSound(SoundEvents.BLOCK_WOOL_PLACE, 1.0F, 1.5F);
