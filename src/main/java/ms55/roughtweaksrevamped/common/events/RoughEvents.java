@@ -6,14 +6,25 @@ import ms55.roughtweaksrevamped.common.item.ModItems;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.GameRules;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 @EventBusSubscriber(modid = RoughTweaksRevamped.MODID, bus = Bus.MOD)
 public class RoughEvents {
+
+	@SubscribeEvent
+    public void logIn(PlayerLoggedInEvent event) {
+		GameRules rules = event.getPlayer().world.getGameRules();
+        if(!RoughConfig.GENERAL.HEALTH_REGEN.get() && event.getPlayer().getEntityWorld().getGameRules().getBoolean(GameRules.NATURAL_REGENERATION)) {
+        	rules.get(GameRules.NATURAL_REGENERATION).set(false, event.getPlayer().getEntityWorld().getServer());
+        	System.out.println("set natural regeneration to false");
+        }
+    }
 
 	@SubscribeEvent
 	public void tickEvent(PlayerTickEvent event) {
