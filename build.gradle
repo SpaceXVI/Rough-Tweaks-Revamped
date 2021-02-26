@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '2.2.3'
+version = '2.2.4'
 group = 'ms55.roughtweaksrevamped'
 archivesBaseName = 'roughtweaks-1.16.5'
 
@@ -84,18 +84,18 @@ sourceSets {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.3-34.1.42'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.0.43'
 }
 
 jar {
     manifest {
         attributes([
             "Specification-Title": "Rough Tweaks",
-            "Specification-Vendor": "MostafaSabry55",
+            "Specification-Vendor": "MS55",
             "Specification-Version": "1",
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"MostafaSabry55",
+            "Implementation-Vendor" :"MS55",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

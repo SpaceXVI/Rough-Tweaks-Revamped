@@ -12,7 +12,7 @@ issueTrackerURL="http://my.issue.tracker/" #TODO
     # displayURL="http://example.com/"
     logoFile="logo.png"
     credits="Huge thanks to our lad, Lellson, for making this amazing mod and allowing it to be ported!"
-    authors="MostafaSabry55"
+    authors="MS55"
     description='''Adds a bit of extra difficulty'''
 
 [[dependencies.roughtweaks]]

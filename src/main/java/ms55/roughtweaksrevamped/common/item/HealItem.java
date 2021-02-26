@@ -37,8 +37,8 @@ public class HealItem extends Item {
 	private Effect EFFECT;
 	private ItemStack RETURN_STACK;
 
-	public HealItem(String name, IntValue useCount, IntValue healRate, DoubleValue healAmount, Effect effect, ItemStack returnStack) {
-		super(new Item.Properties()
+	public HealItem(IntValue useCount, IntValue healRate, DoubleValue healAmount, Effect effect, ItemStack returnStack) {
+		super((new Item.Properties())
 				.group(ItemGroup.MISC)
                 .maxStackSize(1)
                 .maxDamage(useCount.get()));
@@ -66,11 +66,6 @@ public class HealItem extends Item {
 	public int getMaxDamage(ItemStack stack) {
 		return MAX_DAMAGE.get();
 	}
-
-	@Override
-    public int getDamage(ItemStack stack) {
-        return !stack.hasTag() ? getMaxDamage(stack) : stack.getOrCreateTag().getInt("Damage");
-    }
 
 	@Override
 	public int getUseDuration(ItemStack stack) {
