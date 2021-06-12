@@ -11,20 +11,16 @@
       "recipe": {
         "type": "minecraft:crafting_shaped",
         "pattern": [
-          "GPG",
-          "CWC",
-          "GPG"
+          "#W#",
+	      " B "
         ],
         "key": {
-          "G": {
-            "tag": "forge:ingots/gold"
-          },
-          "P": {
-            "item": "minecraft:paper"
-          },
-          "C": {
-            "item": "minecraft:clay_ball"
-          },
+          "#": {
+            "item": "minecraft:string"
+		  },
+		  "B": {
+            "item": "roughtweaks:salve"
+		  },
           "W": {
             "tag": "minecraft:wool",
 		    "data": 32767

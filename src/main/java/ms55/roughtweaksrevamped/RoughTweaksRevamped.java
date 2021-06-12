@@ -27,6 +27,7 @@ public class RoughTweaksRevamped {
         ModLoadingContext.get().registerConfig(Type.COMMON, RoughConfig.COMMON_SPEC, "roughtweaks.toml");
 
         ModItems.register();
+        //ModBlocks.register();
 
         MinecraftForge.EVENT_BUS.register(DataGenerators.class);
         MinecraftForge.EVENT_BUS.register(new RoughEvents());

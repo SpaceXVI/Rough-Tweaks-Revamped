@@ -5,24 +5,24 @@
       "conditions": [
         {
           "type": "roughtweaks:isconfigenabled",
-          "config_setting": "enable_plaster"
+          "config_setting": "enable_salve"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shapeless",
-		"ingredients": [
+        "ingredients": [
         {
-            "item": "roughtweaks:salve"
+            "item": "minecraft:cactus"
         },
         {
-            "item": "minecraft:string"
+            "tag": "forge:seeds"
         },
         {
-            "item": "minecraft:paper"
+            "item": "minecraft:bowl"
         }
 		],
         "result": {
-          "item": "roughtweaks:plaster"
+          "item": "roughtweaks:salve"
         }
       }
     }
