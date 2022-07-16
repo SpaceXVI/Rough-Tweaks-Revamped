@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "roughtweaks:bandage"
+    },
+    "N": {
+      "tag": "forge:crops/nether_wart"
+    },
+    "P": {
+      "item": "roughtweaks:plaster"
+    },
+    "Q": {
+      "tag": "forge:gems/quartz"
+    },
+    "S": {
+      "item": "roughtweaks:salve"
+    }
+  },
+  "pattern": [
+    "QNQ",
+    "SPB",
+    "QNQ"
+  ],
+  "result": {
+    "item": "roughtweaks:medkit"
+  }
+}
