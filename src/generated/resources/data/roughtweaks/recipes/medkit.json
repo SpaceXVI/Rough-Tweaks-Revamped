@@ -1,26 +1,25 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "B": {
-      "item": "roughtweaks:bandage"
-    },
-    "N": {
-      "tag": "forge:crops/nether_wart"
-    },
-    "P": {
-      "item": "roughtweaks:plaster"
-    },
-    "Q": {
-      "tag": "forge:gems/quartz"
-    },
-    "S": {
-      "item": "roughtweaks:salve"
-    }
+	"#": {
+		"item": "roughtweaks:salve"
+	},
+	"G": {
+		"item": "roughtweaks:plaster"
+	},
+	"B": {
+		"item": "roughtweaks:bandage"
+	},
+	"P": {
+		"item": "minecraft:paper"
+	},
+	"X": {
+		"item": "minecraft:glistering_melon_slice"
+	}
   },
   "pattern": [
-    "QNQ",
-    "SPB",
-    "QNQ"
+	"#GB",
+	"PXP"
   ],
   "result": {
     "item": "roughtweaks:medkit"
