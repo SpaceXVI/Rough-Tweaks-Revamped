@@ -1,26 +1,17 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "minecraft:bowl"
-    },
-    {
-      "tag": "forge:seeds"
-    },
-    {
-      "item": "minecraft:cactus"
-    },
-    {
-      "item": "minecraft:poppy"
-    },
-    {
-      "item": "minecraft:dandelion"
-    },
-    {
-      "item": "minecraft:vine"
-    }
-  ],
-  "result": {
-    "item": "roughtweaks:salve"
-  }
+  	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "minecraft:vine"
+	},
+	{
+		"tag": "forge:seeds"
+	},
+	{
+		"item": "minecraft:bowl"
+	}
+  	],
+  	"result": {
+    	"item": "roughtweaks:salve"
+  	}
 }

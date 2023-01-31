@@ -1,23 +1,15 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "B": {
-      "tag": "forge:slimeballs"
-    },
-    "P": {
-      "item": "minecraft:paper"
-    },
-    "S": {
-      "tag": "forge:string"
-    },
-    "W": {
-      "tag": "minecraft:wool"
-    }
-  },
-  "pattern": [
-    "SBS",
-    "PWP",
-    "SBS"
+  "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "roughtweaks:salve"
+	},
+	{
+		"item": "minecraft:string"
+	},
+	{
+		"item": "minecraft:paper"
+	}
   ],
   "result": {
     "item": "roughtweaks:plaster"

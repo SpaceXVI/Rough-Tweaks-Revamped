@@ -1,23 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "C": {
-      "item": "minecraft:clay_ball"
-    },
-    "G": {
-      "tag": "forge:ingots/gold"
-    },
-    "P": {
-      "item": "minecraft:paper"
-    },
+    "#": {
+  		"item": "minecraft:string"
+	},
+	"B": {
+    	"item": "roughtweaks:salve"
+	},
     "W": {
       "tag": "minecraft:wool"
     }
   },
   "pattern": [
-    "GPG",
-    "CWC",
-    "GPG"
+  	"#W#",
+	" B "
   ],
   "result": {
     "item": "roughtweaks:bandage"

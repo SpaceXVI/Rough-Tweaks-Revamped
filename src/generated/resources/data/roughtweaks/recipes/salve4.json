@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "minecraft:dandelion"
+	},
+	{
+		"item": "minecraft:wither_rose"
+	},
+	{
+		"item": "minecraft:bowl"
+	}
+	],
+	"result": {
+		"item": "roughtweaks:salve"
+	}
+}
