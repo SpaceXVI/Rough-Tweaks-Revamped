@@ -26,7 +26,6 @@ public class HealItem extends Item {
 
 	public HealItem(IntValue useCount, IntValue healRate, DoubleValue healAmount, MobEffect effect, ItemStack returnStack) {
 		super((new Item.Properties())
-				.tab(CreativeModeTab.TAB_MISC)
                 .stacksTo(1)
 				.durability(10));
 
