@@ -1,7 +1,5 @@
 # Rough-Tweaks-Revamped
 
-It adds:
-
 ### Healing Salve :
 - The Healing Salve is the least aiding item in the mod, it lasts up to 4 uses, retains 0.5 hearts per use and is very annoying to craft!
 
