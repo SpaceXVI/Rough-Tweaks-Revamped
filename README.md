@@ -1,8 +1,7 @@
 # Rough-Tweaks-Revamped
-This is a mod originally by Lellson usually used in pair with other mods that make the game harder.
+This mod is originally by Lellson usually used in pair with other mods that make the game harder.
 
 It adds:
-(copied from CF)
 
 ### Healing Salve :
 - The Healing Salve is the least aiding item in the mod, it lasts up to 4 uses, retains 0.5 hearts per use and is very annoying to craft!
