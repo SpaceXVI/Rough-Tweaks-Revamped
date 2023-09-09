@@ -1,5 +1,4 @@
 # Rough-Tweaks-Revamped
-This mod is originally by Lellson usually used in pair with other mods that make the game harder.
 
 It adds:
 
