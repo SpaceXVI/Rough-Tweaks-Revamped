@@ -5,6 +5,7 @@ import ms55.roughtweaksrevamped.client.RoughConfig;
 import ms55.roughtweaksrevamped.common.item.ModItems;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
@@ -35,7 +36,7 @@ public class RoughEvents {
 
 	@SubscribeEvent
 	public void dropEvent(LivingDropsEvent event) {
-		if (RoughConfig.GENERAL.DROP_CHANCE.get() > 0 && event.getEntity() instanceof Mob) {
+		if (RoughConfig.GENERAL.DROP_CHANCE.get() > 0 && event.getEntity() instanceof Monster) {
 			ItemStack stack = ItemStack.EMPTY;
 
 			switch(event.getEntity().level.random.nextInt(RoughConfig.GENERAL.DROP_CHANCE.get() * getEnabledItems())) {
