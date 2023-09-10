@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
 import ms55.roughtweaksrevamped.client.RoughConfig;
-
 import ms55.roughtweaksrevamped.common.events.RoughEvents;
 import ms55.roughtweaksrevamped.common.item.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
