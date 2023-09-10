@@ -3,7 +3,6 @@ package ms55.roughtweaksrevamped.common.events;
 import ms55.roughtweaksrevamped.RoughTweaksRevamped;
 import ms55.roughtweaksrevamped.client.RoughConfig;
 import ms55.roughtweaksrevamped.common.item.ModItems;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
