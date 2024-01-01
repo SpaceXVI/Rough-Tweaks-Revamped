@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+	"#": {
+		"item": "roughtweaks:salve"
+	},
+	"G": {
+		"item": "roughtweaks:plaster"
+	},
+	"B": {
+		"item": "roughtweaks:bandage"
+	},
+	"P": {
+		"item": "minecraft:paper"
+	},
+	"X": {
+		"item": "minecraft:glistering_melon_slice"
+	}
+  },
+  "pattern": [
+	"#GB",
+	"PXP"
+  ],
+  "result": {
+    "item": "roughtweaks:medkit"
+  }
+}

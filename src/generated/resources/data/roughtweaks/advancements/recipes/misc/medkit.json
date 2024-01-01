@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bandage": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "roughtweaks:bandage"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_plaster": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "roughtweaks:plaster"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_salve": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "roughtweaks:salve"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "roughtweaks:medkit"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_salve",
+      "has_plaster",
+      "has_bandage",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "roughtweaks:medkit"
+    ]
+  }
+}

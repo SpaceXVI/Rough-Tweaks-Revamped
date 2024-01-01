@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+	{
+		"item": "roughtweaks:salve"
+	},
+	{
+		"item": "minecraft:string"
+	},
+	{
+		"item": "minecraft:paper"
+	}
+  ],
+  "result": {
+    "item": "roughtweaks:plaster"
+  }
+}

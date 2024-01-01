@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+  		"item": "minecraft:string"
+	},
+	"B": {
+    	"item": "roughtweaks:salve"
+	},
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+  	"#W#",
+	" B "
+  ],
+  "result": {
+    "item": "roughtweaks:bandage"
+  }
+}

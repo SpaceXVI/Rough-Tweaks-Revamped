@@ -1,47 +1,33 @@
 package ms55.roughtweaksrevamped.common.item;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import org.lwjgl.glfw.GLFW;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.client.util.InputMappings;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.UseAction;
-import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class HealItem extends Item {
-	private IntValue HEAL_RATE;
-	private IntValue MAX_DAMAGE;
-	private DoubleValue HEAL_AMOUNT;
-	private Effect EFFECT;
-	private ItemStack RETURN_STACK;
+	private final IntValue HEAL_RATE;
+	private final IntValue MAX_DAMAGE;
+	private final DoubleValue HEAL_AMOUNT;
+	private final MobEffect EFFECT;
+	private final ItemStack RETURN_STACK;
 
-	public HealItem(IntValue useCount, IntValue healRate, DoubleValue healAmount, Effect effect, ItemStack returnStack) {
+	public HealItem(IntValue useCount, IntValue healRate, DoubleValue healAmount, MobEffect effect, ItemStack returnStack) {
 		super((new Item.Properties())
-				.group(ItemGroup.MISC)
-                .maxStackSize(1)
-                .maxDamage(useCount.get()));
+                .stacksTo(1)
+				.durability(10));
 
 		this.HEAL_RATE = healRate;
 		this.HEAL_AMOUNT = healAmount;
@@ -51,15 +37,15 @@ public class HealItem extends Item {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
-		ItemStack stack = player.getHeldItem(hand);
+	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+		ItemStack stack = player.getItemInHand(hand);
 
-		if (player.abilities.isCreativeMode) {
-			return new ActionResult<ItemStack>(ActionResultType.PASS, stack);
+		if (player.isCreative()) {
+			return InteractionResultHolder.pass(stack);
 		}
 
-		player.setActiveHand(hand);
-		return new ActionResult<ItemStack>(ActionResultType.SUCCESS, stack);
+		player.startUsingItem(hand);
+		return InteractionResultHolder.success(stack);
 	}
 
 	@Override
@@ -69,46 +55,44 @@ public class HealItem extends Item {
 
 	@Override
 	public int getUseDuration(ItemStack stack) {
-        return 72000;
-    }
+		return 72000;
+	}
 
 	@Override
-    public UseAction getUseAction(ItemStack stack) {
-        return UseAction.BOW;
-    }
+	public UseAnim getUseAnimation(ItemStack stack) {
+		return UseAnim.BOW;
+	}
 
 	@Override
-	public boolean hasEffect(ItemStack stack) {
+	public boolean isFoil(ItemStack stack) {
 		return EFFECT != null;
 	}
 
 	@Override
-	public void onUsingTick(ItemStack stack, LivingEntity player, int count) {
+	public void onUseTick(Level world, LivingEntity player, ItemStack stack, int count) {
 		if (count % HEAL_RATE.get() == 1) {
-			stack.damageItem(1, player, x -> {
-				x.setHeldItem(player.getActiveHand(), RETURN_STACK);
-				x.playSound(SoundEvents.BLOCK_WOOL_PLACE, 1.0F, 0.5F);
-				x.stopActiveHand();
+			stack.hurtAndBreak(1, player, x -> {
+				x.setItemInHand(player.getUsedItemHand(), RETURN_STACK);
+				x.playSound(SoundEvents.WOOL_PLACE, 1.0F, 0.5F);
+				x.broadcastBreakEvent(player.getUsedItemHand());
 			});
 
 			player.heal(HEAL_AMOUNT.get().floatValue());
-			player.playSound(SoundEvents.BLOCK_WOOL_PLACE, 1.0F, 1.5F);
+			player.playSound(SoundEvents.WOOL_PLACE, 1.0F, 1.5F);
 
 			if (EFFECT != null) {
-				player.addPotionEffect(new EffectInstance(EFFECT, 1200));
+				player.addEffect(new MobEffectInstance(EFFECT, 1200));
 			}
 		}
 	}
 
-	@OnlyIn(Dist.CLIENT)
 	@Override
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		if (InputMappings.isKeyDown(Minecraft.getInstance().getMainWindow().getHandle(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
-			float hearts = HEAL_AMOUNT.get().floatValue() / 2;
-			if (hearts % 1.0 == 0)
-				tooltip.add(new StringTextComponent(TextFormatting.BLUE + "Heal Amount: " + (int) hearts + " Hearts"));
-			else
-				tooltip.add(new StringTextComponent(TextFormatting.BLUE + "Heal Amount: " + hearts + " Hearts"));
+	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
+		float hearts = HEAL_AMOUNT.get().floatValue() / 2;
+		if (hearts % 1.0 == 0) {
+			tooltip.add(Component.literal("Heal Amount: " + (int) hearts + " Hearts").withStyle(ChatFormatting.BLUE));
+		} else {
+			tooltip.add(Component.literal("Heal Amount: " + hearts + " Hearts").withStyle(ChatFormatting.BLUE));
 		}
 	}
 }
