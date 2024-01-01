@@ -26,7 +26,7 @@ public class RoughConfig {
 
 			SLEEP_HEAL_AMOUNT = builder
 					.comment("Amount of half hearts sleeping heals. Set to 0 to disable this feature")
-					.defineInRange("sleepHealAmount", 2F, 0F, Short.MAX_VALUE);
+					.defineInRange("sleepHealAmount", 4F, 0F, Short.MAX_VALUE);
 
 			HEALTH_REGEN = builder
 					.comment("Set to true if you want to regenerate health without the use of healing items")

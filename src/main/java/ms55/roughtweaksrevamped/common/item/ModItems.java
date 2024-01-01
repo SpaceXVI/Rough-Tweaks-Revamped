@@ -1,18 +1,19 @@
 package ms55.roughtweaksrevamped.common.item;
 
-import ms55.roughtweaksrevamped.RoughTweaksRevamped;
+import static ms55.roughtweaksrevamped.RoughTweaksRevamped.MODID;
+
 import ms55.roughtweaksrevamped.client.RoughConfig;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.potion.Effects;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RoughTweaksRevamped.MODID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
 	public static RegistryObject<Item> SALVE = ITEMS.register(
 		"salve", () -> new HealItem(RoughConfig.HEAL_COUNT.SALVE_HEAL_COUNT,
@@ -46,10 +47,10 @@ public class ModItems {
 		"medkit_enchanted", () -> new HealItem(RoughConfig.HEAL_COUNT.MEDKIT_ENCHANTED_HEAL_COUNT,
 				RoughConfig.HEAL_TIME.MEDKIT_ENCHANTED_USE_TIME,
 				RoughConfig.HEAL_AMOUNT.MEDKIT_ENCHANTED_HEAL_AMOUNT,
-				Effects.ABSORPTION,
+				MobEffects.ABSORPTION,
 				ItemStack.EMPTY));
-
-    public static void register() {
-        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-    }
+	
+	public static void register(IEventBus eventBus) {
+		ITEMS.register(eventBus);
+	}
 }

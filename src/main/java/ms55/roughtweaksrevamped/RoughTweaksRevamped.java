@@ -1,15 +1,17 @@
 package ms55.roughtweaksrevamped;
 
+import org.slf4j.Logger;
+
+import com.mojang.logging.LogUtils;
+
 import ms55.roughtweaksrevamped.client.RoughConfig;
-import ms55.roughtweaksrevamped.common.data.DataGenerators;
 import ms55.roughtweaksrevamped.common.events.RoughEvents;
 import ms55.roughtweaksrevamped.common.item.ModItems;
-import ms55.roughtweaksrevamped.common.utils.BooleanCondition;
-import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.crafting.CraftingHelper;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig.Type;
@@ -17,24 +19,46 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(RoughTweaksRevamped.MODID)
 public class RoughTweaksRevamped {
-    public static final String MODID = "roughtweaks";
 	public static final String NAME = "Rough Tweaks";
+    public static final String MODID = "roughtweaks";
+    public static final Logger LOGGER = LogUtils.getLogger();
 
 	public RoughTweaksRevamped() {
-        MinecraftForge.EVENT_BUS.register(this);
-        FMLJavaModLoadingContext.get().getModEventBus().register(this);
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        modEventBus.register(this);
 
         ModLoadingContext.get().registerConfig(Type.COMMON, RoughConfig.COMMON_SPEC, "roughtweaks.toml");
 
-        ModItems.register();
-        //ModBlocks.register();
+        ModItems.ITEMS.register(modEventBus);
+        //ModBlocks.BLOCKS.register(modEventBus);
+        //ModPOIs.POI_TYPES.register(modEventBus);
+        //ModProfessions.PROFESSIONS.register(modEventBus);
 
-        MinecraftForge.EVENT_BUS.register(DataGenerators.class);
+        MinecraftForge.EVENT_BUS.register(this);
+
         MinecraftForge.EVENT_BUS.register(new RoughEvents());
+        
+        modEventBus.addListener(this::addCreative);
     }
+	
+	
+	private void addCreative(BuildCreativeModeTabContentsEvent event) {
+		if(event.getTabKey() == CreativeModeTabs.COMBAT) {
+			event.accept(ModItems.BANDAGE, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+			event.accept(ModItems.ENCHANTED_MEDKIT, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+			event.accept(ModItems.MEDKIT, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+			event.accept(ModItems.PLASTER, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+			event.accept(ModItems.SALVE, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+			
 
-	@SubscribeEvent
-    public void registerRecipeSerialziers(RegistryEvent.Register<IRecipeSerializer<?>> event) {
-        CraftingHelper.register(BooleanCondition.Serializer.INSTANCE);
-    }
+
+		}
+	}
+
+	/*private void commonSetup(final FMLCommonSetupEvent event) {
+		event.enqueueWork(() -> {
+			ModPOIs.registerPOIs();
+		});
+	}*/
 }
