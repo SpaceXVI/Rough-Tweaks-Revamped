@@ -22,9 +22,9 @@ public class HealItem extends Item {
 	private final IntValue MAX_DAMAGE;
 	private final DoubleValue HEAL_AMOUNT;
 	private final MobEffect EFFECT;
-	private final ItemStack RETURN_STACK;
+	private final Item RETURN_ITEM;
 
-	public HealItem(IntValue useCount, IntValue healRate, DoubleValue healAmount, MobEffect effect, ItemStack returnStack) {
+	public HealItem(IntValue useCount, IntValue healRate, DoubleValue healAmount, MobEffect effect, Item returnItem) {
 		super((new Item.Properties())
                 .stacksTo(1)
 				.durability(10));
@@ -33,7 +33,7 @@ public class HealItem extends Item {
 		this.HEAL_AMOUNT = healAmount;
 		this.MAX_DAMAGE = useCount;
 		this.EFFECT = effect;
-		this.RETURN_STACK = returnStack;
+		this.RETURN_ITEM = returnItem;
 	}
 
 	@Override
@@ -72,9 +72,11 @@ public class HealItem extends Item {
 	public void onUseTick(Level world, LivingEntity player, ItemStack stack, int count) {
 		if (count % HEAL_RATE.get() == 1) {
 			stack.hurtAndBreak(1, player, x -> {
-				x.setItemInHand(player.getUsedItemHand(), RETURN_STACK);
-				x.playSound(SoundEvents.WOOL_PLACE, 1.0F, 0.5F);
-				x.broadcastBreakEvent(player.getUsedItemHand());
+				InteractionHand hand = x.getUsedItemHand();
+				x.broadcastBreakEvent(hand);
+
+				if (RETURN_ITEM == null) return;
+				x.setItemInHand(hand, new ItemStack(RETURN_ITEM));
 			});
 
 			player.heal(HEAL_AMOUNT.get().floatValue());
