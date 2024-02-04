@@ -20,35 +20,35 @@ public class ModItems {
 				RoughConfig.HEAL_TIME.SALVE_USE_TIME,
 				RoughConfig.HEAL_AMOUNT.SALVE_HEAL_AMOUNT, 
 				null, 
-				new ItemStack(Items.BOWL)));
+				Items.BOWL));
 
 	public static RegistryObject<Item> PLASTER = ITEMS.register(
 		"plaster", () -> new HealItem(RoughConfig.HEAL_COUNT.PLASTER_HEAL_COUNT,
 				RoughConfig.HEAL_TIME.PLASTER_USE_TIME,
 				RoughConfig.HEAL_AMOUNT.PLASTER_HEAL_AMOUNT,
 				null,
-				ItemStack.EMPTY));
+				null));
 
 	public static RegistryObject<Item> BANDAGE = ITEMS.register(
 		"bandage", () -> new HealItem(RoughConfig.HEAL_COUNT.BANDAGE_HEAL_COUNT,
 				RoughConfig.HEAL_TIME.BANDAGE_USE_TIME,
 				RoughConfig.HEAL_AMOUNT.BANDAGE_HEAL_AMOUNT,
 				null,
-				ItemStack.EMPTY));
+				null));
 
 	public static RegistryObject<Item> MEDKIT = ITEMS.register(
 		"medkit", () -> new HealItem(RoughConfig.HEAL_COUNT.MEDKIT_HEAL_COUNT,
 				RoughConfig.HEAL_TIME.MEDKIT_USE_TIME,
 				RoughConfig.HEAL_AMOUNT.MEDKIT_HEAL_AMOUNT,
 				null,
-				ItemStack.EMPTY));
+				null));
 
 	public static RegistryObject<Item> ENCHANTED_MEDKIT = ITEMS.register(
 		"medkit_enchanted", () -> new HealItem(RoughConfig.HEAL_COUNT.MEDKIT_ENCHANTED_HEAL_COUNT,
 				RoughConfig.HEAL_TIME.MEDKIT_ENCHANTED_USE_TIME,
 				RoughConfig.HEAL_AMOUNT.MEDKIT_ENCHANTED_HEAL_AMOUNT,
 				MobEffects.ABSORPTION,
-				ItemStack.EMPTY));
+				null));
 	
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
