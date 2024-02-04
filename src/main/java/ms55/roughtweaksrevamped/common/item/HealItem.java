@@ -13,6 +13,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;
+import net.minecraftforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -72,9 +73,9 @@ public class HealItem extends Item {
 	public void onUseTick(Level world, LivingEntity player, ItemStack stack, int count) {
 		if (count % HEAL_RATE.get() == 1) {
 			stack.hurtAndBreak(1, player, x -> {
-				x.setItemInHand(player.getUsedItemHand(), RETURN_STACK);
 				x.playSound(SoundEvents.WOOL_PLACE, 1.0F, 0.5F);
-				x.broadcastBreakEvent(player.getUsedItemHand());
+				x.broadcastBreakEvent(x.getUsedItemHand());
+				ItemHandlerHelper.giveItemToPlayer((Player) x, RETURN_STACK);
 			});
 
 			player.heal(HEAL_AMOUNT.get().floatValue());
